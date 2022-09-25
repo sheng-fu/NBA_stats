@@ -128,9 +128,9 @@ for (i in active_leaders){
 }
 
 # save for later use
-write.table(result_active, file = "active_players.tsv", quote = F, row.names = F, sep = "\t")
+write.table(result_active, file = "data/active_players.tsv", quote = F, row.names = F, sep = "\t")
 
-# result_active = read_tsv("active_players.tsv")
+result_active = read_tsv("data/active_players.tsv")
 
 # define PLOW: log( time-adjusted winning rate / raw winning rate )
 result_active$plow = log(result_active$min_win_perc  / result_active$raw_win_perc)
@@ -143,12 +143,13 @@ png("BORROW.png", height = 1500, width = 2000)
 
 ggplot(result_active, aes(x=usg_win_perc, y=borrow)) +
   geom_point() + 
-  geom_label_repel(aes(x = usg_win_perc*100, 
+  geom_label_repel(aes(x = usg_win_perc, 
                        y = borrow, 
                        label = Player), size = 10) +
   theme(text = element_text(size = 30),axis.text.x = element_text(size = 25),
         strip.text.x = element_text(size = 25), axis.title=element_text(size=25),
-        plot.title = element_text(size = 20)) + ylab("BORROW") + xlab("adjusted W%")
+        plot.title = element_text(size = 20)) + ylab("BORROW") + xlab("adjusted W%") +
+  scale_x_continuous(labels = scales::percent)
 
 
 dev.off()
@@ -157,12 +158,13 @@ png("PLOW.png", height = 1500, width = 2000)
 
 ggplot(result_active, aes(x=usg_win_perc, y=plow)) +
   geom_point() + 
-  geom_label_repel(aes(x = usg_win_perc*100, 
-                       y = borrow, 
+  geom_label_repel(aes(x = usg_win_perc, 
+                       y = plow, 
                        label = Player), size = 10) +
   theme(text = element_text(size = 30),axis.text.x = element_text(size = 25),
         strip.text.x = element_text(size = 25), axis.title=element_text(size=25),
-        plot.title = element_text(size = 20)) + ylab("PLOW") + xlab("adjusted W%")
+        plot.title = element_text(size = 20)) + ylab("PLOW") + xlab("adjusted W%") +
+  scale_x_continuous(labels = scales::percent)
 
 
 dev.off()
