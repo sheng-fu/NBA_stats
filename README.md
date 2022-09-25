@@ -15,15 +15,19 @@ Data from NBA.com: <br>
 Data from [Basketball Reference](https://www.basketball-reference.com/) <br>
 Based 2021-22 season 
 
-**Simple (global) consistency**: Standard deviation of GmSc divided by Standard deviation of minutes per game
+**Simple global consistency**: Standard deviation of GmSc divided by Standard deviation of minutes per game
 
-![This is an image](https://raw.githubusercontent.com/sheng-fu/NBA_stats/main/consistency_simp_2022.png)
+![This is an image](https://raw.githubusercontent.com/sheng-fu/NBA_stats/main/consistency_simp_glob_2022.png)
 
-**Global consistency**: Negative residuals of standard deviation of a player's GmSc  predicted by average GmSc, average minutes per game, and standard deviation of minutes per game
+**Global consistency (linear residuals)**: Negative residuals of standard deviation of a player's GmSc  predicted by average GmSc, average minutes per game, and standard deviation of minutes per game
 
 ![This is an image](https://raw.githubusercontent.com/sheng-fu/NBA_stats/main/consistency_glob_2022.png)
 
-**Local consistency**: Negative residuals of standard deviation of a player's mean GmSc difference between games predicted by average GmSc, average minutes per game, and average difference of minutes between games
+**Simple local consistency**: A player's mean GmSc difference between games divided by mean minutes difference between game
+
+![This is an image](https://raw.githubusercontent.com/sheng-fu/NBA_stats/main/consistency_simp_loc_2022.png)
+
+**Local consistency (linear residuals)**: Negative residuals of standard deviation of a player's mean GmSc difference between games predicted by average GmSc, average minutes per game, and average difference of minutes between games
 
 ![This is an image](https://raw.githubusercontent.com/sheng-fu/NBA_stats/main/consistency_loc_2022.png)
 
