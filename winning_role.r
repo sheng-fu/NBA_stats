@@ -130,7 +130,8 @@ for (i in active_leaders){
 # save for later use
 write.table(result_active, file = "data/active_players.tsv", quote = F, row.names = F, sep = "\t")
 
-result_active = read_tsv("data/active_players.tsv")
+# read if already saved
+# result_active = read_tsv("data/active_players.tsv")
 
 # define PLOW: log( time-adjusted winning rate / raw winning rate )
 result_active$plow = log(result_active$min_win_perc  / result_active$raw_win_perc)
@@ -141,30 +142,32 @@ result_active$borrow = log(result_active$usg_win_perc  / result_active$raw_win_p
 # draw and save graphs
 png("BORROW.png", height = 1500, width = 2000)
 
-ggplot(result_active, aes(x=usg_win_perc, y=borrow)) +
+ggplot(result_active, aes(x=usg_win_perc, y=borrow, color = G)) +
   geom_point() + 
   geom_label_repel(aes(x = usg_win_perc, 
                        y = borrow, 
-                       label = Player), size = 10) +
+                       label = Player, color = G), size = 10) +
   theme(text = element_text(size = 30),axis.text.x = element_text(size = 25),
         strip.text.x = element_text(size = 25), axis.title=element_text(size=25),
         plot.title = element_text(size = 20)) + ylab("BORROW") + xlab("adjusted W%") +
-  scale_x_continuous(labels = scales::percent)
+  scale_x_continuous(labels = scales::percent) +
+  scale_color_continuous(high = "#132B43", low = "#56B1F7")
 
 
 dev.off()
 
 png("PLOW.png", height = 1500, width = 2000)
 
-ggplot(result_active, aes(x=usg_win_perc, y=plow)) +
+ggplot(result_active, aes(x=usg_win_perc, y=plow, color = G)) +
   geom_point() + 
   geom_label_repel(aes(x = usg_win_perc, 
                        y = plow, 
-                       label = Player), size = 10) +
+                       label = Player, color = G), size = 10) +
   theme(text = element_text(size = 30),axis.text.x = element_text(size = 25),
         strip.text.x = element_text(size = 25), axis.title=element_text(size=25),
         plot.title = element_text(size = 20)) + ylab("PLOW") + xlab("adjusted W%") +
-  scale_x_continuous(labels = scales::percent)
+  scale_x_continuous(labels = scales::percent)  +
+  scale_color_continuous(high = "#132B43", low = "#56B1F7")
 
 
 dev.off()
