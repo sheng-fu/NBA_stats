@@ -2,7 +2,7 @@
 Calculating and visualizing some NBA stats
 
 ## Quantifying shot difficulty
-Data from NBA.com: 
+Data from NBA.com: <br>
 [Closest Defender](https://www.nba.com/stats/players/shots-closest-defender)  <br>
 [Shooting](https://www.nba.com/stats/players/shooting) <br>
 
