@@ -68,7 +68,7 @@ overall$shot_difficulty = -residuals(dist_model)
 png("shot_difficulty.png", height = 1800, width = 3000)
 
 ggplot(overall, aes(x=shot_difficulty, y=mean_efg, color = FGA)) +
-  geom_point() + xlab("Shot Difficulty") + ylab("eFG%") +
+  geom_point() + xlab("Shot Difficulty (Linear Residuals") + ylab("eFG%") +
   geom_label_repel(aes(x = shot_difficulty, 
                        y = mean_efg, 
                        label = PLAYER_NAME,
