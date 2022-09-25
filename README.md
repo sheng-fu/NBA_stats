@@ -10,7 +10,7 @@ to what extent a player has played more minutes in wins
 ![This is an image](https://raw.githubusercontent.com/sheng-fu/NBA_stats/main/PLOW.png)
 
 **BORROW (Bigger Offensive Roles, Relatively, On Winners)**: 
-to what extent a player has had bigger offensive roles (and more playing times) in wins
+to what extent a player has had bigger offensive roles (and more playing time) in wins
 ![This is an image](https://raw.githubusercontent.com/sheng-fu/NBA_stats/main/BORROW.png)
 
 (More descriptions and stats to come!)
