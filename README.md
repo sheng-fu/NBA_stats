@@ -15,6 +15,10 @@ Data from NBA.com: <br>
 Data from [Basketball Reference](https://www.basketball-reference.com/) <br>
 Based 2021-22 season 
 
+**Simple (global) consistency**: Standard deviation of GmSc divided by Standard deviation of minutes per game
+
+![This is an image](https://raw.githubusercontent.com/sheng-fu/NBA_stats/main/consistency_simp_2022.png)
+
 **Global consistency**: Negative residuals of standard deviation of a player's GmSc  predicted by average GmSc, average minutes per game, and standard deviation of minutes per game
 
 ![This is an image](https://raw.githubusercontent.com/sheng-fu/NBA_stats/main/consistency_glob_2022.png)

@@ -205,8 +205,7 @@ write.table(result, file = "data/22_stats.tsv", quote = F, row.names = F, sep = 
 # read if already saved:
 # result = read_tsv("data/22_stats.tsv")
 result = result[result$G > 1,] %>% distinct() 
-result_filtered = filter(result, G > 27, MP > 16)
-
+result_filtered = filter(result, G > 27, MP > 24)
 
 # use a linear model to predict SD of GmSc given mean GmSc, mean/sd minutes per game
 con_model = lm(GmSc_sd ~ GmSc * MP_sd * MP, data = result_filtered)
@@ -219,6 +218,21 @@ con_model_2 = lm(GmSc_diff_abs  ~ GmSc * MP_diff_abs * MP, data = result_filtere
 # flip the residuals to define local consistensy
 result_filtered$local_consistency = -residuals(con_model_2)
 
+png("consistency_simp_glob_2022.png", height = 1500, width = 2500)
+
+ggplot(result_filtered, aes(x=GmSc_sd/MP_sd, y=GmSc )) +
+  geom_point() + 
+  geom_label_repel(aes(x = GmSc_sd/MP_sd, 
+                       y = GmSc , 
+                       label = Player,
+                       color = W/G), size = 12) +
+  theme(text = element_text(size = 30),axis.text.x = element_text(size = 25),
+        strip.text.x = element_text(size = 25), axis.title=element_text(size=25),
+        plot.title = element_text(size = 20))+ 
+  scale_color_continuous(high = "#132B43", low = "#56B1F7") +
+  scale_x_reverse() + xlab("Simple Global Consistency")
+
+dev.off()
 
 png("consistency_glob_2022.png", height = 1500, width = 2500)
 
@@ -231,7 +245,23 @@ ggplot(result_filtered, aes(x=global_consistency, y=GmSc )) +
   theme(text = element_text(size = 30),axis.text.x = element_text(size = 25),
         strip.text.x = element_text(size = 25), axis.title=element_text(size=25),
         plot.title = element_text(size = 20))+ 
-  scale_color_continuous(high = "#132B43", low = "#56B1F7")
+  scale_color_continuous(high = "#132B43", low = "#56B1F7") + xlab("Global Consistency (residuals)")
+
+dev.off()
+
+png("consistency_simp_loc_2022.png", height = 1500, width = 2500)
+
+ggplot(result_filtered, aes(x=GmSc_diff_abs/MP_diff_abs, y=GmSc )) +
+  geom_point() + 
+  geom_label_repel(aes(x = GmSc_diff_abs/MP_diff_abs, 
+                       y = GmSc , 
+                       label = Player,
+                       color = W/G), size = 12) +
+  theme(text = element_text(size = 30),axis.text.x = element_text(size = 25),
+        strip.text.x = element_text(size = 25), axis.title=element_text(size=25),
+        plot.title = element_text(size = 20))+ 
+  scale_color_continuous(high = "#132B43", low = "#56B1F7") +
+  scale_x_reverse() + xlab("Simple Local Consistency")
 
 dev.off()
 
@@ -246,6 +276,6 @@ ggplot(result_filtered, aes(x=local_consistency, y=GmSc )) +
   theme(text = element_text(size = 30),axis.text.x = element_text(size = 25),
         strip.text.x = element_text(size = 25), axis.title=element_text(size=25),
         plot.title = element_text(size = 20))+ 
-  scale_color_continuous(high = "#132B43", low = "#56B1F7")
+  scale_color_continuous(high = "#132B43", low = "#56B1F7") + xlab("Local Consistency (residuals)")
 
 dev.off()
