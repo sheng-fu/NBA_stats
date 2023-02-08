@@ -1,6 +1,29 @@
 # NBA_stats
 Calculating and visualizing some NBA stats
 
+## Quantifying the odds-defying nature of a player's cumulative achievement
+Data from [Basketball Reference](https://www.basketball-reference.com/) <br>
+Using an adapted version of the "[Favorite Toy](https://www.baseball-reference.com/bullpen/Favorite_toy)" formula <br>
+
+Odds of scoring totals for some players based on their first three years <br>
+
+LeBron James: 28.0%  <br>
+Kareem Abdul-Jabbar: 29.1% <br>
+Hakeem Olajuwon: 28.5% <br>
+Tim Duncan: 31.4% <br>
+Michael Jordan: 41.3% (two retirements)  <br>
+Carmelo Anthony: 42.0% (big decline towards the end) <br>
+Allen Iverson: 58.4% (relatively early decline) <br>
+Grant Hill: 70.9% (career detrailed by injuries) <br>
+Wilt Chamberlain: 88.8%! (peaked early, a peak including a 50-ppg season) <br>
+Udonis Haslem: 98.1% (steadily declining role player) <br>
+Yao Ming: 100% (career ended super early; number is actually 193%) <br>
+Tyreke Evans: 100% (peaked early; career ended early; number is actually 207%) <br>
+
+
+
+
+
 ## Quantifying shot difficulty
 Data from NBA.com: <br>
 [Closest Defender](https://www.nba.com/stats/players/shots-closest-defender)  <br>
@@ -13,7 +36,7 @@ Data from NBA.com: <br>
 
 ## Quantifying consistency
 Data from [Basketball Reference](https://www.basketball-reference.com/) <br>
-Based 2021-22 season 
+Based on the 2021-22 season 
 
 **Simple global consistency**: Standard deviation of GmSc divided by Standard deviation of minutes per game
 
