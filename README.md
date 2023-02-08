@@ -20,8 +20,8 @@ Udonis Haslem: 98.1% (steadily declining role player) <br>
 Yao Ming: 100% (career ended super early; number is actually 193%) <br>
 Tyreke Evans: 100% (peaked early; career ended early; number is actually 207%) <br>
 
-
-
+Kobe Bryant: 1.1% (23.7% if using years 3-5) <br>
+Dirk Nowitzki: 2.3% (16.7% is using years 2-4) <br>
 
 
 ## Quantifying shot difficulty
